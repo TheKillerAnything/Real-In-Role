@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy Berhasil!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .glass-effect { backdrop-filter: blur(20px); background: rgba(255, 255, 255, 0.1); }
+        .glass-card { backdrop-filter: blur(20px); background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3); }
+        .btn-success { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 1rem 2rem; border-radius: 12px; font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+        .btn-success:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4); }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem 2rem; border-radius: 12px; font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); }
+        .toast { position: fixed; top: 20px; right: 20px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 1rem 1.5rem; border-radius: 12px; font-weight: 600; z-index: 1000; transform: translateX(100%); transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4); }
+        .toast.show { transform: translateX(0); }
+        .success-glow { box-shadow: 0 0 30px rgba(34, 197, 94, 0.5); }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+        .bounce-animation { animation: bounce 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .pulse-animation { animation: pulse 2s infinite; }
+        @keyframes slideIn { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        .slide-in { animation: slideIn 0.6s ease-out; }
+        @keyframes typing { from { width: 0; } to { width: 100%; } }
+        .typing { white-space: nowrap; overflow: hidden; border-right: 2px solid #667eea; animation: typing 3.5s steps(30, end), blink 0.75s step-end infinite; }
+        @keyframes blink { 0%, 50% { border-color: transparent; } 51%, 100% { border-color: #667eea; } }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+    <audio id="bgMusic" autoplay loop>
+        <source src="https://files.catbox.moe/example.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="toast" class="toast">
+        <i class="fas fa-check mr-2"></i>Berhasil disalin ✅
+    </div>
+
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full p-8 slide-in">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-white mb-4 typing">
+                    🎉 AKUN BERHASIL DIBUAT 🎉
+                </h1>
+                <p class="text-white/80">Server Anda telah berhasil dibuat!</p>
+            </div>
+
+            <div class="glass-card p-6 mb-6" id="serverInfo">
+                <h2 class="text-2xl font-bold text-white mb-4">
+                    <i class="fas fa-clipboard-list mr-2"></i>Detail Server
+                </h2>
+                <div class="grid gap-4 text-white" id="serverDetails">
+                    <!-- Server details will be populated here -->
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-4">
+                <button onclick="copyToClipboard()" 
+                        class="btn-success flex-1">
+                    <i class="fas fa-copy mr-2"></i>Salin Semua Detail
+                </button>
+                <button onclick="window.location.href='/deploy'" 
+                        class="btn-primary flex-1">
+                    <i class="fas fa-plus mr-2"></i>Deploy Lagi
+                </button>
+            </div>
+
+            <div class="mt-6 text-center">
+                <a href="/deploy" class="text-white/60 hover:text-white transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Kembali ke Deploy
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-8 text-center border-t border-white/10 pt-6">
+                <p class="text-white/50 text-sm">
+                    © Rizky Sanjaya - All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="result.js"></script>
+</body>
+</html>

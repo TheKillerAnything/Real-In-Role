@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pterodactyl Auto Deploy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .glass-effect { backdrop-filter: blur(20px); background: rgba(255, 255, 255, 0.1); }
+        .glass-card { backdrop-filter: blur(20px); background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3); }
+        .feature-card { padding: 2rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; transition: all 0.3s ease; backdrop-filter: blur(10px); }
+        .feature-card:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem 2rem; border-radius: 12px; font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer; display: inline-flex; align-items: center; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); }
+        @keyframes slideIn { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        .slide-in { animation: slideIn 0.6s ease-out; }
+        @keyframes typing { from { width: 0; } to { width: 100%; } }
+        .typing { white-space: nowrap; overflow: hidden; border-right: 2px solid #667eea; animation: typing 3.5s steps(30, end), blink 0.75s step-end infinite; }
+        @keyframes blink { 0%, 50% { border-color: transparent; } 51%, 100% { border-color: #667eea; } }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+    <audio id="bgMusic" autoplay loop>
+        <source src="https://files.catbox.moe/example.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="glass-card max-w-4xl w-full p-8 text-center slide-in">
+            <div class="mb-8">
+                <h1 class="text-6xl font-bold text-white mb-4 typing">
+                    🚀 Pterodactyl Auto Deploy
+                </h1>
+                <p class="text-xl text-white/80 mb-8">
+                    Sistem Deploy Server Otomatis Terbaik
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="feature-card">
+                    <i class="fas fa-rocket text-4xl text-blue-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Deploy Cepat</h3>
+                    <p class="text-white/70">Deploy server dalam hitungan detik</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt text-4xl text-green-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Aman & Terpercaya</h3>
+                    <p class="text-white/70">Sistem keamanan tingkat tinggi</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cogs text-4xl text-purple-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Otomatis</h3>
+                    <p class="text-white/70">Proses sepenuhnya otomatis</p>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <button onclick="window.location.href='/login'" 
+                        class="btn-primary w-full md:w-auto">
+                    <i class="fas fa-sign-in-alt mr-2"></i>
+                    Masuk ke Panel
+                </button>
+                <p class="text-white/60 text-sm">
+                    Sistem deploy server Pterodactyl yang mudah dan cepat
+                </p>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-8 text-center border-t border-white/10 pt-6">
+                <p class="text-white/50 text-sm">
+                    © Rizky Sanjaya - All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
